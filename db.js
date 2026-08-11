@@ -10,7 +10,7 @@ const ObjectId = mongoose.Types.ObjectId;
 // const Schema = mongoose.Schema;
 // const ObjectId = mongoose.Types.ObjectId;
 
-mongoose.connect("mongodb+srv://tarunyadav2103:lo8FcaSGr0hYmdQG@cluster0.oob4e1y.mongodb.net/course selling app");
+
 
 const userSchema = new Schema({
     email: {type: String,unique: true },
