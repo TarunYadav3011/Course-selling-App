@@ -8,7 +8,5 @@ const app = express();
 app.use("/user",userRouter);
 app.use("/course",courseRouter);
 
-createUserRoute(app);
-createCourseRoute(app);
 
 app.listen(3000); 

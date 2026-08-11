@@ -2,13 +2,13 @@ const { Roter } = require("express");
 
 const courseRouter = Router();
 
-app.post("/course/purchase", function(req, res){
+app.post("/purchase", function(req, res){
     res.json({
         message: 'signup endpoint'
     })
 })
 
-app.get("/course/preview", function(req, res){
+app.get("/preview", function(req, res){
     res.json({
         message: 'signup endpoint'
     })
