@@ -4,7 +4,7 @@ const { adminModel } = require("../db");
 // bcrypt , zod, jsonwebtoken
 
 const { JWT_ADMIN_PASSWORD } = require("../config");
-const { adminMiddleware, userMiddleware} = require("../middleware/admin");
+const { adminMiddleware} = require("../middleware/admin");
 
 
 adminRouter.post("/signup", async function(req, res){
