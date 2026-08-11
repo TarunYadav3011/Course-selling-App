@@ -3,7 +3,9 @@ const adminRouter = Router();
 const { adminModel } = require("../db");
 // bcrypt , zod, jsonwebtoken
 
-const JWT_ADMIN_PASSWORD = "11111323";
+const { JWT_ADMIN_PASSWORD } = require("../config");
+const { adminMiddleware, userMiddleware} = require("../middleware/admin");
+
 
 adminRouter.post("/signup", async function(req, res){
     const { email, password, firstName, lastName } = req.body; //todo adding zod validation
@@ -48,9 +50,21 @@ adminRouter.post("/signin", async function(req, res){
         }
 })
 
-adminRouter.post("/course", function(req, res){
+adminRouter.post("/course", adminMiddleware, async function(req, res){
+    const adminId = req.userId;
+
+    const { title, description, imageUrl, price } = req.body;
+
+    const course = await courseModel.create({
+        title: title, 
+        description: description, 
+        imageUrl: imageUrl, 
+        price: price, 
+        creatorId: adminId
+    })
     res.json({
-        message: 'course endpoint'
+        message: 'course cretaed',
+        courseId: course._id
     })
 })
 
